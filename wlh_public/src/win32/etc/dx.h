@@ -1,0 +1,1 @@
+extern LPDIRECT3DDEVICE9 pDevice;

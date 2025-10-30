@@ -1,0 +1,10 @@
+adding "private" substring to a .h filename will instruct PCH building to ignore this file.
+adding "private" substring to a .c file filename will instruct .o building to ignore this file.
+
+file2_private.c -ignored by .o building. will not build .o file. but will track changes if it is #included in other .c files that are subjects to .o
+file1.c -proccessed by .o building. rebuilds file1.o if #included files(file2_private.c or file3_private.h) are changed.
+
+main.h file4.h -changes will trigger PCH rebuild
+file3_private.h -ignored by PCH building.
+main.h -proccessed by PCH building. will not rebuild PCH file if #included headers (file3_private.h) are changed.
+
